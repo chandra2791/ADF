@@ -28,6 +28,40 @@
 					"referenceName": "ls_databricks",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "act_db_adls2csv_2",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "act_db_adls2csv",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/chandra2791@gmail.com/PySpark-Introuction/04-Spark-DataFrame-Reader-and-Writer",
+					"libraries": [
+						{
+							"pypi": {
+								"package": "pandas"
+							}
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],
