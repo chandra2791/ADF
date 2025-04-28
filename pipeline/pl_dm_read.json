@@ -1,0 +1,37 @@
+{
+	"name": "pl_dm_read",
+	"properties": {
+		"activities": [
+			{
+				"name": "act_db_adls2csv",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/chandra2791@gmail.com/PySpark-Introuction/03-PySpark-Introduction",
+					"libraries": [
+						{
+							"pypi": {
+								"package": "pandas"
+							}
+						}
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-04-28T10:58:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
